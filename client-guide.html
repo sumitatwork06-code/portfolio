@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nityam Singh Portfolio — Client Project Handover Guide</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    :root {
+      --primary: #f54e00;
+      --primary-soft: #fff2eb;
+      --navy: #0f172a;
+      --slate: #334155;
+      --muted: #64748b;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --emerald: #10b981;
+      --emerald-soft: #ecfdf5;
+      --sky: #0284c7;
+      --sky-soft: #f0f9ff;
+      --violet: #7c3aed;
+      --violet-soft: #f5f3ff;
+      --amber: #d97706;
+      --amber-soft: #fffbeb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--slate);
+      background-color: #f1f5f9;
+      line-height: 1.6;
+      font-size: 13.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 44px 52px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      border-radius: 8px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .page-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+        margin-top: 24px;
+      }
+      .avoid-break {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+
+    /* Header styling */
+    .header-band {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      background: #000000;
+      color: #ffffff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -1px;
+    }
+    .brand-title h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .brand-title p {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .doc-meta {
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .doc-badge {
+      display: inline-block;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 10.5px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    /* Section Headings */
+    h2.section-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 28px 0 14px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.3px;
+    }
+    h2.section-title span.num {
+      background: var(--navy);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    h3.sub-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 18px 0 8px 0;
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: #475569;
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 14px 0;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      position: relative;
+    }
+    .card-accent-top {
+      border-top: 3px solid var(--primary);
+    }
+    .card h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 12px;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* Pills & Tags */
+    .pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin: 2px 4px 2px 0;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .pill-orange { background: var(--primary-soft); color: var(--primary); }
+    .pill-emerald { background: var(--emerald-soft); color: var(--emerald); }
+    .pill-sky { background: var(--sky-soft); color: var(--sky); }
+    .pill-violet { background: var(--violet-soft); color: var(--violet); }
+    .pill-slate { background: #f1f5f9; color: var(--slate); }
+
+    /* Tables */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px 0;
+      font-size: 12.5px;
+    }
+    table.data-table th, table.data-table td {
+      border: 1px solid var(--border);
+      padding: 9px 12px;
+      text-align: left;
+    }
+    table.data-table th {
+      background: #f8fafc;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    table.data-table tr:nth-child(even) {
+      background: #fafafc;
+    }
+
+    /* Workflow Pipeline Graphic */
+    .flow-chain {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 14px 0 20px 0;
+    }
+    .flow-node {
+      flex: 1;
+      text-align: center;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 6px;
+    }
+    .flow-node.active-1 { border-top: 3px solid #f43f5e; }
+    .flow-node.active-2 { border-top: 3px solid #0284c7; }
+    .flow-node.active-3 { border-top: 3px solid #7c3aed; }
+    .flow-node.active-4 { border-top: 3px solid #059669; }
+    .flow-node.active-5 { border-top: 3px solid #d97706; }
+    .flow-node .node-step { font-size: 9.5px; font-weight: 700; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+    .flow-node .node-name { font-size: 12px; font-weight: 800; color: var(--navy); margin: 2px 0; }
+    .flow-node .node-tag { font-size: 10px; color: var(--muted); }
+    .flow-arrow { color: var(--muted); font-weight: bold; font-size: 13px; }
+
+    /* Message card mockup */
+    .msg-mockup {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: #166534;
+      line-height: 1.6;
+      margin: 12px 0;
+      white-space: pre-wrap;
+    }
+
+    .info-callout {
+      background: #fff7ed;
+      border-left: 4px solid var(--primary);
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+      margin: 14px 0;
+      font-size: 12.5px;
+    }
+    .info-callout strong {
+      color: #9a3412;
+    }
+
+    .footer-note {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-container">
+    <!-- Header -->
+    <div class="header-band">
+      <div class="brand-logo">
+        <div class="brand-mark">NS</div>
+        <div class="brand-title">
+          <h1>Nityam Singh</h1>
+          <p>Personal Professional Portfolio — Project Handover &amp; Architecture Guide</p>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <span class="doc-badge">Production v1.0</span><br>
+        <strong>Client:</strong> Nityam Singh (Kumar)<br>
+        <strong>Role:</strong> HR Professional | AI &amp; HR Tech<br>
+        <strong>Date:</strong> October 2026<br>
+        <strong>Status:</strong> Deployment Ready
+      </div>
+    </div>
+
+    <!-- Section 1: Executive Overview -->
+    <h2 class="section-title"><span class="num">01</span> Executive Overview &amp; Website Positioning</h2>
+    <p>
+      This modern portfolio website has been engineered specifically for <strong>Nityam Singh</strong> to establish a premium, authoritative digital presence at the intersection of <strong>Human Resources, AI Intelligence, and Modern Technology</strong>.
+    </p>
+
+    <div class="grid-2">
+      <div class="card card-accent-top">
+        <h4>🎯 Strategic Positioning</h4>
+        <p><strong>Title:</strong> HR Professional | AI &amp; HR Tech Enthusiast</p>
+        <p><strong>Tagline:</strong> <em>Connecting People, Technology &amp; Business through Modern HR.</em></p>
+        <p style="margin-top:6px;">Designed to attract senior HR leaders, recruiters, consulting clients, and technology collaborators.</p>
+      </div>
+      <div class="card card-accent-top">
+        <h4>⚡ Core Engineering Principles</h4>
+        <p><strong>Framework:</strong> Next.js 16 (App Router) + React 19</p>
+        <p><strong>Design System:</strong> Tailwind CSS v4, Motion (Framer), Editorial Canvas</p>
+        <p><strong>Optimization:</strong> Zero-bloat assets, instant load times, SEO-ready metadata, and 100% mobile-friendly responsive layout.</p>
+      </div>
+    </div>
+
+    <!-- Section 2: Sections Walkthrough -->
+    <h2 class="section-title"><span class="num">02</span> Complete Website Sections (A to Z Walkthrough)</h2>
+    <p>The website is structured into 7 distinct, cohesive sections without redundant elements:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width: 18%;">Section</th>
+          <th style="width: 32%;">Visual &amp; Interactive Features</th>
+          <th style="width: 50%;">Business Purpose &amp; Content</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Hero Header</strong></td>
+          <td>
+            • Day &amp; Night Video Switch<br>
+            • Live Location &amp; Weather Widget<br>
+            • Sticky Navigation Bar
+          </td>
+          <td>First-impression banner establishing Nityam's authority. Highlights availability with a live pulse indicator and the primary <strong>"Appoint a Call"</strong> CTA.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Practice Areas</strong></td>
+          <td>• 5-column editorial ticker strip</td>
+          <td>Quick glance at core focus: Talent Acquisition, HR Operations &amp; HRIS, AI &amp; HR Tech, People &amp; Culture, Data &amp; Analytics.</td>
+        </tr>
+        <tr>
+          <td><strong>3. HR + AI Pipeline</strong></td>
+          <td>
+            • Interactive visual flow banner<br>
+            • 7-second auto carousel timer<br>
+            • Ambient shifting glow
+          </td>
+          <td>Walks visitors through Nityam's philosophy: <strong>People → Data → AI → Automation → Better Decisions</strong> with dedicated cards for each stage.</td>
+        </tr>
+        <tr>
+          <td><strong>4. Skills &amp; Knowledge</strong></td>
+          <td>• 3 themed card pillars with chips</td>
+          <td>Displays all 9 required competencies: Talent Acquisition, Compliance (PF &amp; ESIC), Payroll, No-Code App Dev, SQL &amp; Excel, and AI Intelligence.</td>
+        </tr>
+        <tr>
+          <td><strong>5. Career Timeline</strong></td>
+          <td>
+            • Current role active ping<br>
+            • Responsibilities &amp; Impact cards
+          </td>
+          <td>Showcases career milestones at <strong>Genpact</strong> (Current Role), <strong>NetAmbit</strong>, and <strong>MAS Callnet India</strong> with key quantifiable achievements.</td>
+        </tr>
+        <tr>
+          <td><strong>6. Strategic Approach</strong></td>
+          <td>• 4-step sequential path line</td>
+          <td>Explains Nityam's working methodology: 1. Understand Needs ➔ 2. Design Workflows ➔ 3. Leverage AI ➔ 4. Refine for Engagement.</td>
+        </tr>
+        <tr>
+          <td><strong>7. HR &amp; Tech Stack</strong></td>
+          <td>• macOS code editor terminal UI</td>
+          <td>Visual proof of tools used: HRIS platforms, ATS pipelines, Excel, SQL, automation engines, and compliance tools.</td>
+        </tr>
+        <tr>
+          <td><strong>8. About &amp; Contact</strong></td>
+          <td>
+            • Profile photo &amp; career focus<br>
+            • Dual-channel appointment form<br>
+            • Social media hub
+          </td>
+          <td>Personal statement, contact details, social links (LinkedIn, X, Instagram, Snapchat), and the <strong>"Appoint a Call"</strong> interactive booking form.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- Section 3: Dual Notification Booking Engine -->
+    <h2 class="section-title"><span class="num">03</span> The Dual-Channel Appointment Booking System</h2>
+    <p>
+      The <strong>"Appoint a Call"</strong> system has been engineered with two simultaneous notification channels so Nityam Singh receives client leads instantly:
+    </p>
+
+    <div class="grid-2 avoid-break">
+      <div class="card" style="border-left: 4px solid #0284c7;">
+        <h4>✉️ Channel 1: Automated Background Email</h4>
+        <p>• <strong>Target Email:</strong> <code>nityamkumarsingh31@gmail.com</code></p>
+        <p>• <strong>Subject:</strong> <em>New Call Appointment Request – Nityam Kumar</em></p>
+        <p>• <strong>How it works:</strong> Upon form submission, the website executes a background API call via <code>/api/appoint</code>. An automated HTML email is sent with all 8 fields neatly formatted in a table.</p>
+        <p>• <strong>Spam Protection:</strong> Captcha-free serverless validation ensures prompt delivery directly to Gmail.</p>
+      </div>
+
+      <div class="card" style="border-left: 4px solid #10b981;">
+        <h4>💬 Channel 2: Direct WhatsApp Instant Alert</h4>
+        <p>• <strong>Target WhatsApp:</strong> <code>+91 88828 45860</code></p>
+        <p>• <strong>On the Form:</strong> A <strong>"Book via WhatsApp"</strong> button allows visitors to open WhatsApp immediately with their details.</p>
+        <p>• <strong>On Confirmation:</strong> A prominent green button <strong>"Notify Nityam on WhatsApp Directly (1-Click)"</strong> lets the client alert Nityam immediately.</p>
+        <p>• <strong>Compatibility:</strong> Opens natively in the WhatsApp mobile app or WhatsApp Web on laptops.</p>
+      </div>
+    </div>
+
+    <div class="avoid-break">
+      <h3 class="sub-title">Pre-Formatted WhatsApp Message Template</h3>
+      <p>When the client clicks the WhatsApp button, WhatsApp automatically opens with this ready-to-send card:</p>
+      <div class="msg-mockup">📅 *New Call Appointment Request – Nityam Kumar*
+
+👤 *Name:* [Client's Full Name]
+✉️ *Email:* [client@company.com]
+📞 *Phone:* [+91 98765 43210]
+🏢 *Company:* [Organization Name]
+🎯 *Purpose of Call:* [e.g. Talent Acquisition / HR Tech Consultation]
+🗓️ *Preferred Date:* [2026-10-15]
+⏰ *Preferred Time:* [14:00]
+💬 *Message:* [Client's consultation notes or agenda]</div>
+    </div>
+
+    <!-- Section 4: Content Management -->
+    <h2 class="section-title avoid-break"><span class="num">04</span> Easy Content Management (How to Update in Future)</h2>
+    <p>
+      To make future updates effortless, all personal details, social URLs, job roles, skills, and settings are organized in a single configuration file:
+      <br>
+      📁 <code>lib/content.ts</code> (Centralized Site Configuration)
+    </p>
+
+    <div class="card avoid-break" style="background:#f8fafc; font-family:'JetBrains Mono', monospace; font-size:12px;">
+      <p style="color:#0284c7;">// How to update your details in lib/content.ts:</p>
+      <p>export const SITE_CONFIG = {</p>
+      <p>&nbsp;&nbsp;name: "Nityam Singh",</p>
+      <p>&nbsp;&nbsp;email: "nityamkumarsingh31@gmail.com",</p>
+      <p>&nbsp;&nbsp;phone: "+91 88828 45860",</p>
+      <p>&nbsp;&nbsp;whatsappNumber: "918882845860", <span style="color:#10b981;">// Country code + number</span></p>
+      <p>&nbsp;&nbsp;social: {</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;linkedin: "https://www.linkedin.com/in/nityam-rajput-9a6b36307/",</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;twitter: "https://x.com/nityam__rajput",</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;instagram: "https://www.instagram.com/nityam__rajput/",</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;snapchat: "https://www.snapchat.com/add/thenityam12",</p>
+      <p>&nbsp;&nbsp;}</p>
+      <p>};</p>
+    </div>
+
+    <!-- Section 5: Deployment & Custom Domain -->
+    <div class="page-break"></div>
+    <h2 class="section-title"><span class="num">05</span> Deployment, Hosting &amp; Custom Domain Guide</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>🌐 GitHub Repository</h4>
+        <p><strong>Repo URL:</strong> <a href="https://github.com/sumitatwork06-code/portfolio" target="_blank" style="color:var(--primary); text-decoration:none;">github.com/sumitatwork06-code/portfolio</a></p>
+        <p>• Clean, non-shallow Git history.<br>• Staged with all 66 source and asset files.<br>• Branch <code>main</code> is deployment-ready.</p>
+      </div>
+
+      <div class="card">
+        <h4>🚀 Vercel Live Deployment</h4>
+        <p>• <strong>Free Tier:</strong> Includes instant global CDN, automatic SSL certificates, and zero maintenance fees.</p>
+        <p>• <strong>Live Link:</strong> Immediately accessible via your free <code>.vercel.app</code> address.</p>
+      </div>
+    </div>
+
+    <div class="info-callout avoid-break">
+      <strong>How to connect your custom domain (e.g. <code>nityamhr.in</code>) when purchased:</strong>
+      <ol style="margin: 8px 0 0 18px; line-height: 1.6;">
+        <li>Purchase <code>nityamhr.in</code> from GoDaddy or Hostinger (~₹399–₹499/yr).</li>
+        <li>In your domain registrar's DNS dashboard, add:
+          <br>• <strong>A Record:</strong> Host <code>@</code> ➔ Points to <code>76.76.21.21</code>
+          <br>• <strong>CNAME Record:</strong> Host <code>www</code> ➔ Points to <code>cname.vercel-dns.com</code>
+        </li>
+        <li>In Vercel ➔ Settings ➔ Domains, enter <code>nityamhr.in</code> and click <strong>Verify</strong>.</li>
+      </ol>
+    </div>
+
+    <!-- Section 6: Deliverables Checklist -->
+    <h2 class="section-title avoid-break"><span class="num">06</span> Final Project Deliverables Summary</h2>
+    <div class="grid-3 avoid-break">
+      <div class="card">
+        <h4>🎨 Design System</h4>
+        <p>• Custom typography (Outfit + JetBrains)<br>• Vibrant section themes<br>• Day/Night switch<br>• 100% Mobile responsive</p>
+      </div>
+      <div class="card">
+        <h4>⚡ Technical Health</h4>
+        <p>• Next.js 16 App Router<br>• 0 TypeScript errors<br>• Clean production build<br>• Native robots &amp; sitemap</p>
+      </div>
+      <div class="card">
+        <h4>📬 Inquiries &amp; CTA</h4>
+        <p>• 8-field booking form<br>• Background email relay<br>• 1-click WhatsApp routing<br>• Zero duplicate links</p>
+      </div>
+    </div>
+
+    <!-- Footer Note -->
+    <div class="footer-note avoid-break">
+      <span>© 2026 Nityam Singh (Nityam Kumar). All Rights Reserved.</span>
+      <span>HR | AI | Technology | People | Data</span>
+    </div>
+  </div>
+
+</body>
+</html>
