@@ -21,7 +21,7 @@ const fontMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nityamkumar.portfolio"),
+  metadataBase: new URL("https://www.nityamhr.in"),
   title: {
     default: "Nityam Singh · HR Professional | AI & HR Tech Enthusiast",
     template: "%s · Nityam Singh",
